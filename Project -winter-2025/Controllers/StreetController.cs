@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Project__winter_2025.classes;
+using Project__winter_2025.data;
+using WinterModel.classes;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,12 +10,16 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class StreetController : ControllerBase
     {
-        List<Street> streets = new List<Street>();
+        private readonly IData _context;
+        public StreetController(IData context)
+        {
+            _context = context;
+        }
         // GET: api/<StreetController>
         [HttpGet]
         public IEnumerable<Street> Get()
         {
-            return streets;
+            return _context.streets;
         }
 
         // GET api/<StreetController>/5
@@ -23,11 +28,10 @@ namespace Project__winter_2025.Controllers
         [HttpGet("{id}")]
         public Street Get(string city,string nameofstreet)
         {
-            try
-            {
-                return streets.Find(street => street.Name == nameofstreet && street.City == city);
-            }
-            catch{ return null; }
+              
+                return _context.streets.FirstOrDefault(street => street.Name == nameofstreet && street.City == city);
+            
+           
         }
 
         // POST api/<StreetController>
@@ -35,14 +39,14 @@ namespace Project__winter_2025.Controllers
         public void Post([FromBody]NameAndCity value)
 
         {
-            streets.Add(new Street (  value.Name,  value.City ));
+            _context. streets.Add(new Street (  value.Name,  value.City ));
         }
 
         // PUT api/<StreetController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Station station)
         {
-            streets.Find(street=>street.Id==id).ListOfStation.Add(station);
+            _context. streets.Find(street=>street.Id==id).ListOfStation.Add(station);
         }
 
         // DELETE api/<StreetController>/5

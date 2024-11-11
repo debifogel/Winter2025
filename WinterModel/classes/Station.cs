@@ -1,4 +1,6 @@
-﻿namespace Project__winter_2025.classes
+﻿using WinterModel.classes;
+
+namespace WinterModel.classes
 {
     public class Station
     {//איך אפשר קוד על פי אזור

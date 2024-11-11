@@ -1,4 +1,4 @@
-﻿namespace Project__winter_2025.classes
+﻿namespace WinterModel.classes
 {
     public class Busfrombody
     {
@@ -6,7 +6,7 @@
         public string BusName { get; set; }
         public string destination { get; set; }
         public string source { get; set; }
-        public string Company { get; set; }
+        public CompanyName Company { get; set; }
 
     }
 }

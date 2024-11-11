@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project -winter-2025", "Project -winter-2025\Project -winter-2025.csproj", "{3582223A-840C-45AF-9B62-E18899305713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project -winter-2025", "Project -winter-2025\Project -winter-2025.csproj", "{3582223A-840C-45AF-9B62-E18899305713}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stationTest", "stationTest\stationTest.csproj", "{B22C8A17-EAEC-43B7-9D4B-AF5F6C5454CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinterModel", "WinterModel\WinterModel.csproj", "{D3B5E1C8-9A90-4C20-86DA-4C00C4D23FE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{3582223A-840C-45AF-9B62-E18899305713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3582223A-840C-45AF-9B62-E18899305713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3582223A-840C-45AF-9B62-E18899305713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22C8A17-EAEC-43B7-9D4B-AF5F6C5454CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22C8A17-EAEC-43B7-9D4B-AF5F6C5454CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22C8A17-EAEC-43B7-9D4B-AF5F6C5454CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22C8A17-EAEC-43B7-9D4B-AF5F6C5454CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B5E1C8-9A90-4C20-86DA-4C00C4D23FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B5E1C8-9A90-4C20-86DA-4C00C4D23FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B5E1C8-9A90-4C20-86DA-4C00C4D23FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B5E1C8-9A90-4C20-86DA-4C00C4D23FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

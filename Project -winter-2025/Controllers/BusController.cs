@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Project__winter_2025.classes;
+using Project__winter_2025.data;
+using WinterModel.classes;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,41 +11,30 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class BusController : ControllerBase
     {
-        List<Bus> buses = new List<Bus>();
+        private readonly IData _context;
+        public BusController(IData context)
+        {
+            _context = context;
+        }
         // GET: api/<BusController>
         [HttpGet]
         public IEnumerable<Bus> Get()
         {
-            return buses;
+            return _context. buses;
         }
 
         // GET api/<BusController>/5
 
         //צריך לחשוב איך לעשות את זה
         [HttpGet("{id}")]
-        public IEnumerable<object> Get([FromQuery] string name=null, [FromQuery] string company=null, [FromQuery] string destination=null, [FromQuery] string source=null)
+        public IEnumerable<object> Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
         {   List<Bus>list=null;
-        
-                list= (List<Bus>)buses.Where(bus=>bus.BusName==name);
-            if(company != null )
-                    if(list != null)
-                list= (List<Bus>)list.Where(bus => bus.Company == company);
-                   else
-                    list = (List<Bus>)buses.Where(bus => bus.Company == company);
-            if (destination != null)
-                if (list != null)
-                    list = (List<Bus>)list.Where(bus => bus.Destination == destination);
-                else
-                    list = (List<Bus>)buses.Where(bus => bus.Destination == destination);
-            if (destination != null)
-                if (list != null)
-                    list = (List<Bus>)list.Where(bus => bus.Source == source);
-                else
-                    list = (List<Bus>)buses.Where(bus => bus.Source == source);
 
-            if(list != null)
-                return list;
-            return buses;
+            return (List<Bus>)_context.buses.Where(bus=> 
+                (bus.BusName == null||bus.BusName==name)
+                &&( bus.Company == null|| bus.Company == company)
+                 && (destination == null || bus.Destination == destination)
+            && (destination == null || bus.Source == source));
         }
        
 
@@ -57,9 +48,9 @@ namespace Project__winter_2025.Controllers
             b.Source = bus.source;
             b.Destination = bus.destination;
             b.Company = bus.Company;
-            
-            
-            buses.Add(b);
+
+
+            _context. buses.Add(b);
         }
 
         // PUT api/<BusController>/5

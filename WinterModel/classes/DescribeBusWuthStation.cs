@@ -1,4 +1,4 @@
-﻿namespace Project__winter_2025.classes
+﻿namespace WinterModel.classes
 {
     //אולי אפשר לפתור עי רשימה מקושרת עפ סדר
 //ולהוסיף enum של סטטוס
