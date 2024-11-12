@@ -6,10 +6,10 @@ namespace Project__winter_2025.data
 {
     public interface IData
     {
-        public List<Bus> buses { get; set; }
+        public  List<Bus> buses { get; set; }
 
-        public List<Street> streets { get; set; }
+        public  List<Street> streets { get; set; }
 
-        public List<Station> stations { get; set; }
+        public  List<Station> stations { get; set; }
     }
 }

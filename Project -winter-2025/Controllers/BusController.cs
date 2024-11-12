@@ -11,30 +11,31 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class BusController : ControllerBase
     {
-        private readonly IData _context;
+        private  readonly IData _context;
         public BusController(IData context)
         {
             _context = context;
         }
         // GET: api/<BusController>
-        [HttpGet]
-        public IEnumerable<Bus> Get()
-        {
-            return _context. buses;
-        }
+        //[HttpGet]
+        //public IEnumerable<Bus> Get()
+        //{
+        //    return _context. buses;
+        //}
 
         // GET api/<BusController>/5
 
         //צריך לחשוב איך לעשות את זה
-        [HttpGet("{id}")]
-        public IEnumerable<object> Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
-        {   List<Bus>list=null;
-
-            return (List<Bus>)_context.buses.Where(bus=> 
-                (bus.BusName == null||bus.BusName==name)
-                &&( bus.Company == null|| bus.Company == company)
-                 && (destination == null || bus.Destination == destination)
-            && (destination == null || bus.Source == source));
+        [HttpGet]
+        public IEnumerable<object>? Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
+        {  
+            
+                return _context.buses.Where(bus =>
+                    (bus.BusName == null || bus.BusName == name)
+                    && (bus.Company == 0 || bus.Company == company)
+                     && (destination == null || bus.Destination == destination)
+                && (destination == null || bus.Source == source));
+            
         }
        
 
