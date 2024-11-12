@@ -16,6 +16,7 @@ namespace Project__winter_2025.Controllers
         {
             _context = context;
         }
+        //צריך לחשוב איך לעשות את זה
         // GET: api/<BusController>
         //[HttpGet]
         //public IEnumerable<Bus> Get()
@@ -25,7 +26,7 @@ namespace Project__winter_2025.Controllers
 
         // GET api/<BusController>/5
 
-        //צריך לחשוב איך לעשות את זה
+
         [HttpGet]
         public IEnumerable<object>? Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
         {  

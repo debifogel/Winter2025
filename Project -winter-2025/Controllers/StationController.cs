@@ -25,7 +25,7 @@ namespace Project__winter_2025.Controllers
 
         // GET api/<StationController>/5
         [HttpGet("{id}")]
-        public ActionResult<Station> Get(int id)
+        public ActionResult Get(int id)
         {
             
             Station s= _context.stations.Find(stop=>stop.Id==id);

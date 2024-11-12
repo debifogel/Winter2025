@@ -22,7 +22,7 @@ namespace stationTest
             var result = controller.Get(id);
 
             //Assert
-            Assert.IsType<NotFoundObjectResult>(result);
+            Assert.IsType<NotFoundResult>(result);
         }
         [Fact]
         public void GetById_ReturnsOk()
