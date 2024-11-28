@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WinterModel\WinterModel.csproj" />
+    <ProjectReference Include="..\Buses.Service\Buses.Service.csproj" />
+    <ProjectReference Include="..\WinterModel\Buses.Core.csproj" />
   </ItemGroup>
 
 </Project>

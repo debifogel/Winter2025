@@ -1,4 +1,4 @@
-﻿namespace WinterModel.classes
+﻿namespace Buses.Core.classes
 {
     public class TimeOfBus
     {

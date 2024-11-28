@@ -1,11 +1,9 @@
-﻿using WinterModel.classes;
-
-namespace WinterModel.classes
+﻿namespace Buses.Core.classes
 {
     public class Station
     {//איך אפשר קוד על פי אזור
         static int Count = 1;
-        public int Id { get;  }
+        public int Id { get; }
         public string StationName { get; set; }
         public string City { get; set; }
         public List<Bus> BusInStation { get; set; }
@@ -15,12 +13,12 @@ namespace WinterModel.classes
             Id = Count++;
             IsActive = true;
         }
-        public Station(string stationName,string city)
+        public Station(string stationName, string city)
         {
             Id = Count++;
             BusInStation = new List<Bus>();
             StationName = stationName;
-            City=city;
+            City = city;
             IsActive = true;
         }
     }

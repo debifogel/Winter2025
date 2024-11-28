@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Project__winter_2025.data;
-using WinterModel.classes;
+﻿using Buses.Core.classes;
+using Buses.Service;
+using Microsoft.AspNetCore.Mvc;
+
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,8 +12,8 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class BusController : ControllerBase
     {
-        private  readonly IData _context;
-        public BusController(IData context)
+        private  readonly BusService _context;
+        public BusController(BusService context)
         {
             _context = context;
         }
@@ -31,7 +32,7 @@ namespace Project__winter_2025.Controllers
         public IEnumerable<object>? Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
         {  
             
-                return _context.buses.Where(bus =>
+                return _context.GetAll().Where(bus =>
                     (bus.BusName == null || bus.BusName == name)
                     && (bus.Company == 0 || bus.Company == company)
                      && (destination == null || bus.Destination == destination)

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Project -winter-2025\Project -winter-2025.csproj" />
+    <ProjectReference Include="..\Project -winter-2025\Buses.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

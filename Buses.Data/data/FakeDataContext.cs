@@ -1,9 +1,9 @@
 ﻿
-using WinterModel.classes;
+using Buses.Core.classes;
 
-namespace Project__winter_2025.data
+namespace Buses.Data.data
 {
-    public class FakeDataContext:IData
+    public class FakeDataContext : IData
     {
         public List<Bus> buses { get; set; }
 
@@ -13,7 +13,7 @@ namespace Project__winter_2025.data
         public FakeDataContext()
         {
             buses = new List<Bus>() { new Bus() { BusName = "1", Company = CompanyName.Dan, }, new Bus() { BusName = "1", Company = CompanyName.Dan } };
-            streets = new List<Street>() { new Street("Akiva","bnei brak"), new Street("Akiva", "elad") , new Street("kook", "bnei brak") };
+            streets = new List<Street>() { new Street("Akiva", "bnei brak"), new Street("Akiva", "elad"), new Street("kook", "bnei brak") };
             stations = new List<Station>() { new Station("doobek", "bnei brak"), new Station("Akiva", "elad"), new Station("kook", "bnei brak") };
         }
     }

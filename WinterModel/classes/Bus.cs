@@ -1,10 +1,9 @@
-﻿
-namespace WinterModel.classes
+﻿namespace Buses.Core.classes
 {
-    
+
 }
 
-namespace WinterModel.classes
+namespace Buses.Core.classes
 {
     public enum CompanyName
     {

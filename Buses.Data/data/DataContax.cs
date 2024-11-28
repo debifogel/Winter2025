@@ -1,6 +1,7 @@
 ﻿
-using Project__winter_2025.data;
-using WinterModel.classes;
+using Buses.Core.classes;
+using Buses.Data.data;
+
 public class DataContext:IData
 {
     public List<Bus> buses  { get; set; }

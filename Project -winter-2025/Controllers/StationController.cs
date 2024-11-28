@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Buses.Core.classes;
+using Microsoft.AspNetCore.Mvc;
 using Project__winter_2025.data;
-using WinterModel.classes;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
