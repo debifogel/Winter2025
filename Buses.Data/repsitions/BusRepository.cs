@@ -9,5 +9,6 @@ namespace Buses.Data.repsitions
 {
     public class BusRepository:IRepository<Bus>
     {
+
     }
 }
