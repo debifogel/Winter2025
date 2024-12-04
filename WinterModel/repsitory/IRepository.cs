@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Buses.Core.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,10 @@ namespace Buses.Core.repsitory
     public interface IRepository<T>
     {
         public void Add(T item);
-        public void Update(T item);
-        public void Delete(T item);
-        public List<T> GetAll();
+        public bool Delete(T item);
+        public bool Delete(int id);
+        public List<T> GetAll(string? a, string? b, string? c, CompanyName? company);
         public T Get(int id);
-
+        public  bool UpDate(int id,T item);
     }
 }

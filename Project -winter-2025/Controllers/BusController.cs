@@ -1,5 +1,5 @@
 ﻿using Buses.Core.classes;
-using Buses.Service;
+using Buses.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -12,8 +12,8 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class BusController : ControllerBase
     {
-        private  readonly BusService _context;
-        public BusController(BusService context)
+        private  readonly IBusService _context;
+        public BusController(IBusService context)
         {
             _context = context;
         }
@@ -29,44 +29,37 @@ namespace Project__winter_2025.Controllers
 
 
         [HttpGet]
-        public IEnumerable<object>? Get([FromQuery] string? name, [FromQuery] CompanyName? company, [FromQuery] string ?destination, [FromQuery] string? source)
-        {  
-            
-                return _context.GetAll().Where(bus =>
-                    (bus.BusName == null || bus.BusName == name)
-                    && (bus.Company == 0 || bus.Company == company)
-                     && (destination == null || bus.Destination == destination)
-                && (destination == null || bus.Source == source));
+        public IEnumerable<object>? Get([FromQuery] string? name, [FromQuery] string? destination, [FromQuery] string? source, [FromQuery] CompanyName? company)
+        {
+
+            return _context.GetAll(name,company,destination,source);
             
         }
        
 
         // POST api/<BusController>
         [HttpPost]
-        public void Post([FromBody] Busfrombody bus)
+        public IActionResult Post([FromBody] Busfrombody bus)
         {
-            Bus b = new Bus();
-
-            b.BusName = bus.BusName;
-            b.Source = bus.source;
-            b.Destination = bus.destination;
-            b.Company = bus.Company;
-
-
-            _context. buses.Add(b);
+            
+            _context.Post(bus);
+            return Ok();
         }
 
         // PUT api/<BusController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]  Busfrombody bus)
+        public IActionResult Put(int id, [FromBody]  Bus bus)
         {
-
+            _context.UpDate(id, bus);
+            return Ok();
         }
 
         // DELETE api/<BusController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _context.Delete(id);
+            return Ok();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Buses.Core.classes;
+using Buses.Core.Services;
 using Microsoft.AspNetCore.Mvc;
-using Project__winter_2025.data;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,8 +10,8 @@ namespace Project__winter_2025.Controllers
     [ApiController]
     public class StationController : ControllerBase
     {
-        private readonly IData _context;
-        public StationController(IData context)
+        private readonly IStationService _context;
+        public StationController(IStationService context)
         {
             _context = context;
         }
@@ -20,7 +20,7 @@ namespace Project__winter_2025.Controllers
         [HttpGet]
         public IEnumerable<Station> Get()
         {
-            return _context.stations;
+            return _context.GetAll();
         }
 
         // GET api/<StationController>/5
@@ -28,7 +28,7 @@ namespace Project__winter_2025.Controllers
         public ActionResult Get(int id)
         {
             
-            Station s= _context.stations.Find(stop=>stop.Id==id);
+            Station s= _context.GetById(id);
             if (s is null)
             {
                 return NotFound();
@@ -38,22 +38,26 @@ namespace Project__winter_2025.Controllers
 
         // POST api/<StationController>
         [HttpPost]
-        public void Post([FromBody] NameAndCity value)
+        public IActionResult Post([FromBody] NameAndCity value)
         {
-            _context.stations.Add(new Station(value.Name, value.City));
+            _context.Post(value);
+            return Ok();
         }
 
         // PUT api/<StationController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Bus value)
+        public IActionResult Put(int id, [FromBody] Station value)
         {
-            _context.stations.Find(stop => stop.Id == id).BusInStation.Add(value);
+            _context.UpDate(id, value);
+            return Ok();
         }
 
         // DELETE api/<StationController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _context.Delete(id);
+            return Ok();
         }
 
        

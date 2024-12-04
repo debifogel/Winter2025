@@ -8,7 +8,14 @@ using System.Threading.Tasks;
 
 namespace Buses.Core.Services
 {
-    internal interface IStreetService:IRepository<Street>
+    public interface IStreetService
     {
+        List<Street> GetAll(string? name,string? city);
+        Street GetById(int id);
+
+        public bool Delete(int id);
+        public void Post(NameAndCity busfrombody);
+        public bool UpDate(int id, Street street);
+        public bool AddStation(Station station,int id);
     }
 }

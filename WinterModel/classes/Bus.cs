@@ -17,12 +17,13 @@ namespace Buses.Core.classes
         public string BusName { get; set; }
         public string Destination { get; set; }
         public string Source { get; set; }
-        public LinkedList<Dictionary<DescribeBusWuthStation, Station>> Listofstation { get; set; }
+        public List<StationAndi> Listofstation { get; set; }
         public CompanyName Company { get; set; }
         public TimeOfBus Timings { get; set; }
-
+        public bool IsActive { get; set; }
         public Bus()
         {
+            Listofstation= new List<StationAndi>();
             Id = ++countBuses;
         }
 
