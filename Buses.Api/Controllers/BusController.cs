@@ -47,11 +47,21 @@ namespace Project__winter_2025.Controllers
         }
 
         // PUT api/<BusController>/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]  Bus bus)
+        [HttpPut("/update{id}")]
+        public IActionResult UpdateBus(int id, [FromBody]  Bus bus)
         {
-            _context.UpDate(id, bus);
+           bool result= _context.UpDate(id, bus);
+            if(result)
             return Ok();
+            return NotFound();
+        }
+        [HttpPut("/addStation{id}")]
+        public IActionResult AddStation(int id, [FromBody] StationAndi station)
+        {
+           bool result= _context.AddStation(station, id);
+           if(result)
+            return Ok();
+           return NotFound();
         }
 
         // DELETE api/<BusController>/5
